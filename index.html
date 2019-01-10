@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Assistente di classe</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="titleP"><h1><b>Text to speech</b></h1></div>
+        <div class="container">
+
+            <h3 class="no-browser-support">Sorry, this browser doesn't support the Web Speech API.</h3>
+
+            <div class="app">
+                <div class="input-single">
+                    <textarea id="note-textarea" rows="3" placeholder="Dimmi cosa devo fare."></textarea>
+                </div>
+                <button id="start-record-btn" title="Start Recording">Start Recognition</button>
+                <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>
+                <button id="speak-btn" title="Read transcript">Read Transcript</button>
+                <button id="reset-btn" title="Reset">Reset</button>
+                <button id="sign-in-or-out-button" style="margin-left: 25px">Sign In/Authorize</button>
+                <button id="revoke-access-button" style="display: none; margin-left: 25px">Revoke access</button>
+
+                <div id="auth-status" style="display: inline; padding-left: 25px"></div>
+                <hr>
+                <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
+            </div>
+
+        </div>
+        <div id="canvasDiv"></div>
+        <div class="gInfo">Authors<br>Davide Vitagliano<br>Giovanni Barozzi<br>Riccardo Pierazzo</div>
+        <script type="text/javascript" src="html5-canvas-game-character-1.js"></script>
+        <script type="text/javascript">
+            prepareCanvas(document.getElementById("canvasDiv"), 490, 220);
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+        <script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+        <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+
+        <script src="googleClient.js"></script>
+        <script src="main.js"></script>
+        <script src="speech-synthesis.js"></script>
+        <script src="speech-recognition.js"></script>
+        <script async defer src="https://apis.google.com/js/api.js"
+                onload="handleClientLoad()"
+                onreadystatechange="if (this.readyState === 'complete') this.onload()">
+        </script></body>
+</html>
